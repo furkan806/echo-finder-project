@@ -11,7 +11,7 @@ export interface Item {
   description: string;
   date: string;
   location: string;
-  photo?: string;
+  photo?: string | undefined;
   personName: string;
   contact: string;
   reportStatus: ReportStatus;

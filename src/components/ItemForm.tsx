@@ -3,7 +3,15 @@ import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { CATEGORIES, addItem, type ItemStatus } from "@/lib/store";
 
-type Errors = Record<string, string>;
+type Field =
+  | "name"
+  | "category"
+  | "description"
+  | "date"
+  | "location"
+  | "personName"
+  | "contact";
+type Errors = Partial<Record<Field, string>>;
 
 export function ItemForm({ status }: { status: ItemStatus }) {
   const navigate = useNavigate();
@@ -218,7 +226,7 @@ export function ItemForm({ status }: { status: ItemStatus }) {
   );
 }
 
-function FieldError({ message }: { message?: string }) {
+function FieldError({ message }: { message?: string | undefined }) {
   if (!message) return null;
   return <p className="mt-1.5 text-xs font-medium text-destructive">{message}</p>;
 }
