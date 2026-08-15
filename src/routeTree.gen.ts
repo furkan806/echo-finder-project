@@ -10,14 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ReportFoundRouteImport } from './routes/report-found'
 import { Route as ReportLostRouteImport } from './routes/report-lost'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as ItemsIndexRouteImport } from './routes/items.index'
+import { Route as ItemsItemIdRouteImport } from './routes/items.$itemId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReportFoundRoute = ReportFoundRouteImport.update({
@@ -40,43 +59,91 @@ const ItemsIndexRoute = ItemsIndexRouteImport.update({
   path: '/items/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ItemsItemIdRoute = ItemsItemIdRouteImport.update({
+  id: '/items/$itemId',
+  path: '/items/$itemId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/report-found': typeof ReportFoundRoute
   '/report-lost': typeof ReportLostRoute
   '/search': typeof SearchRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
   '/items/': typeof ItemsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/report-found': typeof ReportFoundRoute
   '/report-lost': typeof ReportLostRoute
   '/search': typeof SearchRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
   '/items': typeof ItemsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/report-found': typeof ReportFoundRoute
   '/report-lost': typeof ReportLostRoute
   '/search': typeof SearchRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
   '/items/': typeof ItemsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/report-found' | '/report-lost' | '/search' | '/items/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/login'
+    | '/register'
+    | '/report-found'
+    | '/report-lost'
+    | '/search'
+    | '/items/$itemId'
+    | '/items/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/report-found' | '/report-lost' | '/search' | '/items'
+  to:
+    | '/'
+    | '/contact'
+    | '/login'
+    | '/register'
+    | '/report-found'
+    | '/report-lost'
+    | '/search'
+    | '/items/$itemId'
+    | '/items'
   id:
-    '__root__' | '/' | '/report-found' | '/report-lost' | '/search' | '/items/'
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/login'
+    | '/register'
+    | '/report-found'
+    | '/report-lost'
+    | '/search'
+    | '/items/$itemId'
+    | '/items/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
   ReportFoundRoute: typeof ReportFoundRoute
   ReportLostRoute: typeof ReportLostRoute
   SearchRoute: typeof SearchRoute
+  ItemsItemIdRoute: typeof ItemsItemIdRoute
   ItemsIndexRoute: typeof ItemsIndexRoute
 }
 
@@ -87,6 +154,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/report-found': {
@@ -117,14 +205,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ItemsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/items/$itemId': {
+      id: '/items/$itemId'
+      path: '/items/$itemId'
+      fullPath: '/items/$itemId'
+      preLoaderRoute: typeof ItemsItemIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
   ReportFoundRoute: ReportFoundRoute,
   ReportLostRoute: ReportLostRoute,
   SearchRoute: SearchRoute,
+  ItemsItemIdRoute: ItemsItemIdRoute,
   ItemsIndexRoute: ItemsIndexRoute,
 }
 export const routeTree = rootRouteImport
