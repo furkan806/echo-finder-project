@@ -5,7 +5,7 @@ import { formatDate, type Item } from "@/lib/store";
 export function StatusBadge({ item }: { item: Item }) {
   if (item.reportStatus === "returned") {
     return (
-      <span className="rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">
+      <span className="rounded-full bg-card/95 px-3 py-1 text-xs font-semibold text-success shadow-card backdrop-blur">
         Returned
       </span>
     );
@@ -13,10 +13,8 @@ export function StatusBadge({ item }: { item: Item }) {
   return (
     <span
       className={
-        "rounded-full px-3 py-1 text-xs font-semibold " +
-        (item.status === "lost"
-          ? "bg-destructive/10 text-destructive"
-          : "bg-success/10 text-success")
+        "rounded-full bg-card/95 px-3 py-1 text-xs font-semibold shadow-card backdrop-blur " +
+        (item.status === "lost" ? "text-destructive" : "text-success")
       }
     >
       {item.status === "lost" ? "Lost" : "Found"}

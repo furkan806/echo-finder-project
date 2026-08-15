@@ -1,5 +1,14 @@
 import { useSyncExternalStore } from "react";
 
+import laptopBag from "@/assets/item-laptop-bag.jpg";
+import idCard from "@/assets/item-id-card.jpg";
+import bottle from "@/assets/item-bottle.jpg";
+import calculator from "@/assets/item-calculator.jpg";
+import keys from "@/assets/item-keys.jpg";
+import wallet from "@/assets/item-wallet.jpg";
+import book from "@/assets/item-book.jpg";
+import earbuds from "@/assets/item-earbuds.jpg";
+
 export type ItemStatus = "lost" | "found";
 export type ReportStatus = "pending" | "approved" | "rejected" | "returned";
 
@@ -39,7 +48,7 @@ export const CATEGORIES = [
   "Other",
 ];
 
-const ITEMS_KEY = "clf_items_v1";
+const ITEMS_KEY = "clf_items_v2";
 const USERS_KEY = "clf_users_v1";
 const SESSION_KEY = "clf_session_v1";
 
@@ -53,6 +62,7 @@ const seedItems: Item[] = [
       "Black laptop backpack with a broken side zip. Contains a charger and BCA notes.",
     date: "2026-08-11",
     location: "Library, 2nd Floor",
+    photo: laptopBag,
     personName: "Aditya Sharma",
     contact: "9876543210",
     reportStatus: "approved",
@@ -66,6 +76,7 @@ const seedItems: Item[] = [
     description: "College ID card found near the canteen counter. BCA 1st semester.",
     date: "2026-08-12",
     location: "Main Canteen",
+    photo: idCard,
     personName: "Rahul Yadav",
     contact: "9123456780",
     reportStatus: "approved",
@@ -79,6 +90,7 @@ const seedItems: Item[] = [
     description: "Steel blue Milton bottle with a small dent at the bottom.",
     date: "2026-08-13",
     location: "Computer Lab 3",
+    photo: bottle,
     personName: "Sneha Gupta",
     contact: "9988776655",
     reportStatus: "approved",
@@ -92,6 +104,7 @@ const seedItems: Item[] = [
     description: "Casio fx-991 calculator found on a bench in the maths classroom.",
     date: "2026-08-13",
     location: "Room 204",
+    photo: calculator,
     personName: "Mohd Furkan",
     contact: "9229641044",
     reportStatus: "approved",
@@ -105,6 +118,7 @@ const seedItems: Item[] = [
     description: "Three keys attached to a red keyring, found in the parking area.",
     date: "2026-08-14",
     location: "Bike Parking",
+    photo: keys,
     personName: "Karan Singh",
     contact: "9001122334",
     reportStatus: "pending",
@@ -118,6 +132,7 @@ const seedItems: Item[] = [
     description: "Brown wallet containing an Aadhaar card and a bus pass.",
     date: "2026-08-14",
     location: "Sports Ground",
+    photo: wallet,
     personName: "Ankit Patel",
     contact: "9556677889",
     reportStatus: "approved",
@@ -131,6 +146,7 @@ const seedItems: Item[] = [
     description: "Let Us C book with the name 'Riya' written on the first page.",
     date: "2026-08-10",
     location: "Library Reading Hall",
+    photo: book,
     personName: "Divya Nair",
     contact: "9445566778",
     reportStatus: "returned",
@@ -144,6 +160,7 @@ const seedItems: Item[] = [
     description: "boAt earbuds in a black charging case, lost during the lunch break.",
     date: "2026-08-09",
     location: "Auditorium",
+    photo: earbuds,
     personName: "Harsh Meena",
     contact: "9334455667",
     reportStatus: "approved",
