@@ -52,8 +52,8 @@ export function SiteFooter() {
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-primary" aria-hidden />
               <a href="mailto:furkanbokaro@gmail.com" className="hover:text-primary">
-                furkanbokaro@gmail.com /
-                mf1207955@gmail.com
+               furkanbokaro@gmail.com<br />
+               mf1207955@gmail.com
               </a>
             </li>
           </ul>
